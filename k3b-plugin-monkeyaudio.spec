@@ -8,8 +8,10 @@ URL:		http://www.k3b.org
 Group:		X11/Applications
 License:	GPL
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Requires:	k3b
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	k3b-devel
+Requires:	k3b
 
 %description
 K3B plugin to support encoding and decoding of Monkey Audio files.
