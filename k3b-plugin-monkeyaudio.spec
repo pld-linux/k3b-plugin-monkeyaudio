@@ -11,6 +11,7 @@ URL:		http://www.k3b.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	k3b-devel
+BuildRequires:	libsamplerate-devel
 Requires:	k3b
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
