@@ -2,7 +2,7 @@ Summary:	Monkey Audio plugin for k3b
 Summary(pl):	Wtyczka Monkey Audio dla k3b
 Name:		k3b-plugin-monkeyaudio
 Version:	2.0
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/k3b/k3bmonkeyaudioplugin-%{version}.tar.bz2
@@ -37,7 +37,9 @@ cp -f /usr/share/automake/config.sub admin
 %configure \
 	--%{!?debug:dis}%{?debug:en}able-debug \
 	%{!?debug:--disable-rpath} \
-	--enable-final \
+%if "%{_lib}" == "lib64"
+	--enable-libsuffix=64 \
+%endif
 	--with-qt-libraries=%{_libdir}
 
 %{__make}
@@ -48,13 +50,15 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%find_lang k3bmonkeyplugin --with-kde
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f k3bmonkeyplugin.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog COPYING NEWS README TODO
+%doc AUTHORS COPYING ChangeLog NEWS README TODO
 %doc src/libmonkeyaudio/LICENSE.libmonkeyaudio
-%attr(755,root,root) %{_libdir}/kde3/lib*.so*
 %{_libdir}/kde3/lib*.la
+%attr(755,root,root) %{_libdir}/kde3/lib*.so*
 %{_datadir}/apps/k3b/plugins/*.plugin
