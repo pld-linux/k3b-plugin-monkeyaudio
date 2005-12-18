@@ -1,12 +1,12 @@
 Summary:	Monkey Audio plugin for k3b
 Summary(pl):	Wtyczka Monkey Audio dla k3b
 Name:		k3b-plugin-monkeyaudio
-Version:	0.0.0
+Version:	2.0
 Release:	0.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/k3b/k3bmonkeyaudioplugin.tar.bz2
-# Source0-md5:	6a2f9f531cd63a50bf600fc8044ef7f1
+Source0:	http://dl.sourceforge.net/k3b/k3bmonkeyaudioplugin-%{version}.tar.bz2
+# Source0-md5:	f35b2c7db9b31bc0b657316055dc8c6c
 URL:		http://www.k3b.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -28,14 +28,18 @@ Samo Monkey Audio SDK zosta³o wydane na licencji w stylu BSD -
 szczegó³y w pliku %{_docdir}/%{_name}/LICENSE.libmonkeyaudio* .
 
 %prep
-%setup -q -n k3bmonkeyaudioplugin
+%setup -q -n k3bmonkeyaudioplugin-%{version}
 
 %build
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure
+cp -f /usr/share/automake/config.sub admin
+%{__make} -f admin/Makefile.common
+
+%configure \
+	--%{!?debug:dis}%{?debug:en}able-debug \
+	%{!?debug:--disable-rpath} \
+	--enable-final \
+	--with-qt-libraries=%{_libdir}
+
 %{__make}
 
 %install
