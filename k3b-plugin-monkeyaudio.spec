@@ -50,12 +50,13 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang k3bmonkeyplugin --with-kde
+#%find_lang k3bmonkeyplugin --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f k3bmonkeyplugin.lang
+%files
+#%files -f k3bmonkeyplugin.lang
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README TODO
 %{_libdir}/kde3/lib*.la
