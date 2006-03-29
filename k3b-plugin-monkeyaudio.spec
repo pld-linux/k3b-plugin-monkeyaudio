@@ -12,6 +12,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	k3b-devel
 BuildRequires:	libsamplerate-devel
+BuildRequires:	nasm
 Requires:	k3b
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
