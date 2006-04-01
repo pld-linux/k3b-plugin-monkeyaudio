@@ -12,7 +12,9 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	k3b-devel
 BuildRequires:	libsamplerate-devel
+%ifarch %{ix86}
 BuildRequires:	nasm
+%endif
 Requires:	k3b
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
