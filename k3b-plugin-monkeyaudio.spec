@@ -1,5 +1,5 @@
 Summary:	Monkey Audio plugin for k3b
-Summary(pl):	Wtyczka Monkey Audio dla k3b
+Summary(pl.UTF-8):   Wtyczka Monkey Audio dla k3b
 Name:		k3b-plugin-monkeyaudio
 Version:	3.0
 Release:	1
@@ -24,11 +24,11 @@ K3B plugin to support encoding and decoding of Monkey Audio files.
 The Monkey Audio SDK itself is released under a BSD-like license; see
 %{_docdir}/%{_name}/LICENSE.libmonkeyaudio* .
 
-%description -l pl
-Wtyczka K3B do obs≥ugi kodowania i dekodowania plikÛw Monkey Audio.
+%description -l pl.UTF-8
+Wtyczka K3B do obs≈Çugi kodowania i dekodowania plik√≥w Monkey Audio.
 
-Samo Monkey Audio SDK zosta≥o wydane na licencji w stylu BSD -
-szczegÛ≥y w pliku %{_docdir}/%{_name}/LICENSE.libmonkeyaudio* .
+Samo Monkey Audio SDK zosta≈Ço wydane na licencji w stylu BSD -
+szczeg√≥≈Çy w pliku %{_docdir}/%{_name}/LICENSE.libmonkeyaudio* .
 
 %prep
 %setup -q -n k3bmonkeyaudioplugin-%{version}
