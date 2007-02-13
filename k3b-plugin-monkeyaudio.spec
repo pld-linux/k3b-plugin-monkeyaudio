@@ -1,5 +1,5 @@
 Summary:	Monkey Audio plugin for k3b
-Summary(pl.UTF-8):   Wtyczka Monkey Audio dla k3b
+Summary(pl.UTF-8):	Wtyczka Monkey Audio dla k3b
 Name:		k3b-plugin-monkeyaudio
 Version:	3.0
 Release:	1
