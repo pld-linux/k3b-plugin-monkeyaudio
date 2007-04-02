@@ -16,7 +16,6 @@ BuildRequires:	libsamplerate-devel
 %ifarch %{ix86}
 BuildRequires:	nasm
 %endif
-Requires:	k3b
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,8 +35,7 @@ szczegóły w pliku %{_docdir}/%{_name}/LICENSE.libmonkeyaudio* .
 %patch0 -p1
 
 %build
-cp -f /usr/share/automake/config.sub admin
-%{__make} -f admin/Makefile.common
+%{__make} -f admin/Makefile.common cvs
 
 %configure \
 	--%{!?debug:dis}%{?debug:en}able-debug \
@@ -55,13 +53,12 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-#%find_lang k3bmonkeyplugin --with-kde
+%find_lang k3bmonkeyplugin --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
-#%files -f k3bmonkeyplugin.lang
+%files -f k3bmonkeyplugin.lang
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README TODO
 %{_libdir}/kde3/lib*.la
