@@ -32,7 +32,7 @@ szczegóły w pliku %{_docdir}/%{_name}/LICENSE.libmonkeyaudio* .
 
 %prep
 %setup -q -n k3bmonkeyaudioplugin-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__make} -f admin/Makefile.common cvs
